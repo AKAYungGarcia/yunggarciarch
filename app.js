@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v19";
+const storageKey = "akayunggarcia-standalone-v20";
 const adminKey = "akayunggarcia-admin-ok";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
 const oldStorageKeys = [
@@ -19,7 +19,8 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v15",
     "akayunggarcia-standalone-v16",
   "akayunggarcia-standalone-v17",
-  "akayunggarcia-standalone-v18"
+  "akayunggarcia-standalone-v18",
+  "akayunggarcia-standalone-v19"
 ];
 
 const fallbackImage =
@@ -99,7 +100,7 @@ const initialData = {
     {
       type: "musicas",
       title: "Musicas",
-      text: "8 ou 80, Fuck the Fame e Falso Thanos.",
+      text: "catalogo e atalhos do Spotify.",
       link: "#musica"
     },
     {
@@ -235,7 +236,7 @@ const initialData = {
   ],
   about: [
     "Arquivo visual e musical de Yung Garcia.",
-    "Faixas em destaque: Miragens, 8 ou 80, Fuck the Fame e Falso Thanos.",
+    "Faixas e atalhos conectados ao Spotify.",
     "Conteudo: musicas, fotos, videoclipes, podcasts e atalhos.",
     "Atualizacoes: Instagram e Spotify.",
     "Contato: email e redes."
