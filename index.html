@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#030208" />
+    <title>Yung Garcia Archive</title>
+    <meta
+      name="description"
+      content="Arquivo digital de Yung Garcia: musicas, videoclipes, fotos, pre-save e links oficiais."
+    />
+    <link rel="stylesheet" href="./styles.css?v=18" />
+    <link rel="stylesheet" href="./tactical.css?v=3" />
+  </head>
+  <body>
+    <div id="boot" class="boot">
+      <p>abrindo arquivo interno</p>
+      <h1 data-glitch="Yung Garcia Archive">Yung Garcia Archive</h1>
+    </div>
+
+    <canvas id="rain" aria-hidden="true"></canvas>
+    <div id="wallImageLayer" aria-hidden="true"></div>
+    <div id="alienLayer" aria-hidden="true">
+      <span class="ship ship-a"></span>
+      <span class="ship ship-b"></span>
+      <span class="ship ship-c"></span>
+      <span class="beam beam-a"></span>
+      <span class="beam beam-b"></span>
+    </div>
+    <div id="noise" aria-hidden="true"></div>
+    <div id="cursorLight" aria-hidden="true"></div>
+
+    <nav class="rail" aria-label="Navegacao exploratoria">
+      <a href="#musica"><span></span>som</a>
+      <a href="#videoclipes"><span></span>video</a>
+      <a href="#identidade"><span></span>eu</a>
+      <a href="#visual"><span></span>visao</a>
+      <a href="#ideias"><span></span>diario</a>
+      <a href="#contato"><span></span>colab</a>
+    </nav>
+
+    <button id="audioToggle" class="audio-toggle" type="button">ruido</button>
+    <main id="site"></main>
+
+    <section id="yx-admin-777" class="admin-panel" aria-label="Painel de administracao">
+      <div class="admin-shell">
+        <aside>
+          <p class="kicker">/painel privado</p>
+          <h2>painel vivo</h2>
+          <div id="loginBox" class="login-box">
+            <input id="adminPass" type="password" placeholder="senha" autocomplete="current-password" />
+            <button id="loginBtn" type="button">entrar</button>
+            <small>Acesso privado. Nao compartilhe este link.</small>
+          </div>
+
+          <div id="adminTools" class="admin-tools hidden">
+            <div class="tabs">
+              <button data-tab="theme" type="button">tema</button>
+              <button data-tab="text" type="button">texto</button>
+              <button data-tab="music" type="button">musica</button>
+              <button data-tab="gallery" type="button">visual</button>
+              <button data-tab="blocks" type="button">blocos</button>
+              <button data-tab="tools" type="button">ferramenta</button>
+            </div>
+            <div id="editor"></div>
+            <div class="admin-actions">
+              <button id="saveBtn" type="button">salvar</button>
+              <button id="exportBtn" type="button">exportar json</button>
+              <button id="importBtn" type="button">importar json</button>
+              <button id="resetBtn" type="button">reset</button>
+            </div>
+            <small id="saveStatus" class="save-status">alteracoes locais</small>
+            <textarea id="jsonBox" placeholder="backup/importacao json"></textarea>
+          </div>
+        </aside>
+        <div class="admin-preview">
+          <p>preview em tempo real: role a pagina por tras ou edite aqui e veja mudar.</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="./app.js?v=17"></script>
+  </body>
+</html>
