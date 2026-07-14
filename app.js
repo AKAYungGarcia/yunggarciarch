@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v17";
+const storageKey = "akayunggarcia-standalone-v18";
 const adminKey = "akayunggarcia-admin-ok";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
 const oldStorageKeys = [
@@ -17,7 +17,8 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v13",
   "akayunggarcia-standalone-v14",
   "akayunggarcia-standalone-v15",
-  "akayunggarcia-standalone-v16"
+    "akayunggarcia-standalone-v16",
+  "akayunggarcia-standalone-v17"
 ];
 
 const fallbackImage =
@@ -29,7 +30,7 @@ const initialData = {
   designVersion,
   artistName: "Yung Garcia Archive",
   tagline: "musicas, videos, fotos, pre-save e links oficiais",
-  citySignal: "sinal aberto",
+  citySignal: "arquivo online",
   spotifyEmbed:
     "https://open.spotify.com/embed/artist/2TIEjez69Y8t9qvfWKeyXS?utm_source=generator&theme=0",
   theme: {
@@ -68,12 +69,7 @@ const initialData = {
     scrollDepth: 38,
     performanceMode: false
   },
-  phrases: [
-    "sinal instavel.",
-    "8 ou 80.",
-    "fuck the fame.",
-    "falso thanos."
-  ],
+  phrases: ["spotify.", "instagram.", "youtube.", "fotos."],
   worldNodes: [
     {
       type: "spotify",
@@ -144,8 +140,8 @@ const initialData = {
     {
       label: "THANOS",
       title: "Falso Thanos",
-      text: "musica / link a confirmar",
-      link: "#musica",
+      text: "abrir no Spotify",
+      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS",
       kind: "audio"
     },
     {
@@ -261,22 +257,22 @@ const initialData = {
     {
       title: "8 ou 80",
       cover: fallbackImage,
-      mood: "link a confirmar",
-      description: "Faixa adicionada ao arquivo. Atualize capa e link direto pelo admin quando tiver o Spotify/YouTube.",
+      mood: "spotify",
+      description: "Atalho para ouvir pelo Spotify.",
       link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
     },
     {
       title: "Fuck the Fame",
       cover: fallbackImage,
-      mood: "link a confirmar",
-      description: "Faixa adicionada ao arquivo. Atualize capa e link direto pelo admin quando tiver o Spotify/YouTube.",
+      mood: "spotify",
+      description: "Atalho para ouvir pelo Spotify.",
       link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
     },
     {
       title: "Falso Thanos",
       cover: fallbackImage,
-      mood: "link a confirmar",
-      description: "Faixa adicionada ao arquivo. Atualize capa e link direto pelo admin quando tiver o Spotify/YouTube.",
+      mood: "spotify",
+      description: "Atalho para abrir Falso Thanos pelo Spotify.",
       link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
     },
     {
@@ -438,7 +434,7 @@ function renderSite() {
   document.getElementById("site").innerHTML = `
     <section class="room hero">
       <div class="inner">
-        <p class="kicker">${escapeHtml(data.citySignal)}</p>
+        <p class="kicker boot-signal">${escapeHtml(data.citySignal)}</p>
         <h1 class="${glitchClass}" data-glitch="${escapeHtml(data.artistName)}">${escapeHtml(data.artistName)}</h1>
         <p class="tagline">${escapeHtml(data.tagline)}</p>
         <div class="actions">
@@ -456,7 +452,7 @@ function renderSite() {
 
     ${section("hud", "plataformas", "spotify / instagram / youtube", `
       <div class="pirate-hud">
-        <div class="hud-scratch">signal lock / files online</div>
+        <div class="hud-scratch">archive online / neural links</div>
         ${data.mediaHubs.map((hub, index) => `
           <article class="hud-window ${hub.type} h${index + 1}">
             <header>
