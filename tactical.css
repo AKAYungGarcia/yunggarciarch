@@ -1548,3 +1548,64 @@ body.low-power #cursorLight {
   72% { opacity: 1; transform: translate3d(0, -2px, 0) scale(1.015); clip-path: inset(0 0 0 0); }
   100% { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
 }
+
+/* V21: remove top phrase banner and kill old red passes on the visible surface. */
+.hero .phrase-card,
+.room.hero > .phrase-card,
+aside.phrase-card {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.hero .inner {
+  max-width: 1180px !important;
+}
+
+.hero,
+.music-grid,
+.tracks,
+.track,
+.hud-window.spotify,
+.spotify,
+.glass:has(.spotify),
+.portal-object.audio {
+  --signal-hot: #36ff7f !important;
+  --fire-red: #36ff7f !important;
+  --pirate-red: #36ff7f !important;
+  --pirate-red-dark: #003d18 !important;
+}
+
+.hero *,
+.music-grid *,
+.hud-window.spotify *,
+.portal-object.audio * {
+  border-color: rgba(54,255,127,.42) !important;
+}
+
+.hero h1,
+.hero .tagline,
+.hero .kicker,
+.hud-window.spotify,
+.hud-window.spotify *,
+.music-grid,
+.music-grid *,
+.track a {
+  text-shadow: 0 0 14px rgba(54,255,127,.46), 0 24px 48px rgba(0,0,0,.82) !important;
+}
+
+.hud-window.spotify,
+.music-grid .glass,
+.track {
+  background:
+    linear-gradient(145deg, rgba(0,25,9,.92), rgba(0,0,0,.74)),
+    radial-gradient(circle at 18% 8%, rgba(54,255,127,.2), transparent 13rem) !important;
+  box-shadow:
+    inset 0 0 30px rgba(54,255,127,.12),
+    0 0 40px rgba(54,255,127,.22),
+    0 30px 80px rgba(0,0,0,.72) !important;
+}

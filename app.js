@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v18";
+const storageKey = "akayunggarcia-standalone-v19";
 const adminKey = "akayunggarcia-admin-ok";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
 const oldStorageKeys = [
@@ -18,7 +18,8 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v14",
   "akayunggarcia-standalone-v15",
     "akayunggarcia-standalone-v16",
-  "akayunggarcia-standalone-v17"
+  "akayunggarcia-standalone-v17",
+  "akayunggarcia-standalone-v18"
 ];
 
 const fallbackImage =
@@ -443,11 +444,6 @@ function renderSite() {
           <a href="#visual">explorar</a>
         </div>
       </div>
-      <aside class="glass phrase-card">
-        <span class="kicker">categorias</span>
-        <div>${data.phrases.map((phrase) => `<p>${escapeHtml(phrase)}</p>`).join("")}</div>
-        <span class="kicker">atalhos</span>
-      </aside>
     </section>
 
     ${section("hud", "plataformas", "spotify / instagram / youtube", `
