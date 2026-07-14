@@ -1609,3 +1609,160 @@ aside.phrase-card {
     0 0 40px rgba(54,255,127,.22),
     0 30px 80px rgba(0,0,0,.72) !important;
 }
+
+/* V22: smoother archive flow, Koln cathedral wall, no empty-card feeling. */
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: clamp(18px, 4vh, 48px) !important;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(57,255,136,.18), transparent 28rem),
+    radial-gradient(circle at 75% 72%, rgba(114,255,242,.08), transparent 26rem),
+    linear-gradient(180deg, #010503 0%, #000 100%) !important;
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse at 50% 24%, rgba(57,255,136,.10), transparent 34rem),
+    repeating-linear-gradient(90deg, transparent 0 160px, rgba(184,255,210,.026) 161px 162px, transparent 163px 320px),
+    repeating-linear-gradient(0deg, transparent 0 42px, rgba(184,255,210,.018) 43px 44px, transparent 45px 84px) !important;
+  opacity: .62 !important;
+}
+
+#wallImageLayer {
+  background-size: cover !important;
+  background-position: 50% 38% !important;
+  filter:
+    grayscale(.78)
+    contrast(1.72)
+    brightness(.5)
+    hue-rotate(78deg)
+    saturate(1.92)
+    blur(var(--cathedral-blur, .7px)) !important;
+  opacity: min(var(--wall-opacity, .78), .88) !important;
+  transform: translate3d(0, calc(var(--scroll-depth) * -16px), -1px) scale(1.06) !important;
+}
+
+body.wall-motion #wallImageLayer {
+  animation: kolnWallBreath var(--wall-speed, 34s) ease-in-out infinite alternate !important;
+}
+
+#wallImageLayer::after {
+  opacity: .2 !important;
+  background:
+    radial-gradient(circle at 50% 38%, transparent 0 20rem, rgba(0,0,0,.5) 42rem),
+    linear-gradient(90deg, rgba(0,0,0,.86), transparent 20%, transparent 80%, rgba(0,0,0,.86)) !important;
+}
+
+#site {
+  perspective: 1400px;
+}
+
+.room {
+  min-height: auto !important;
+  padding-block: clamp(4.8rem, 10vh, 9rem) !important;
+  transform: translateZ(0);
+}
+
+.room.hero {
+  min-height: 100svh !important;
+  padding-block: clamp(6rem, 14vh, 10rem) !important;
+}
+
+.room + .room {
+  margin-top: clamp(-1.5rem, -2vh, -.5rem) !important;
+}
+
+.section-head {
+  margin-bottom: clamp(1.2rem, 3vw, 2.4rem) !important;
+}
+
+.section-head .kicker {
+  color: rgba(184,255,210,.78) !important;
+  letter-spacing: .12em !important;
+}
+
+.pirate-hud,
+.object-wall,
+.mindmap,
+.music-grid,
+.video-grid,
+.bio,
+.thoughts,
+.contact .inner {
+  transform: translate3d(0, 0, 80px) rotateX(.7deg) !important;
+}
+
+.pirate-hud {
+  min-height: clamp(520px, 74vh, 760px) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(ellipse at 50% 36%, rgba(57,255,136,.18), transparent 18rem),
+    radial-gradient(circle at 64% 54%, rgba(114,255,242,.08), transparent 22rem),
+    linear-gradient(145deg, rgba(0,12,5,.9), rgba(0,0,0,.94)) !important;
+}
+
+.hud-window:has(.media-strip:empty),
+.gallery:empty,
+.media-strip:empty {
+  display: none !important;
+}
+
+.object-wall {
+  min-height: clamp(520px, 70vh, 780px) !important;
+}
+
+.portal-object {
+  border-radius: 14px !important;
+  background:
+    linear-gradient(145deg, rgba(0,24,9,.8), rgba(0,0,0,.66)),
+    radial-gradient(circle at 20% 0, rgba(57,255,136,.16), transparent 12rem) !important;
+}
+
+.portal-object span,
+.hud-window header span,
+.track .mood,
+.tag {
+  color: #b8ffd2 !important;
+}
+
+.track,
+.video-card,
+.hud-window {
+  border-radius: 16px !important;
+}
+
+.spotify {
+  border-radius: 14px !important;
+  box-shadow: 0 0 42px rgba(57,255,136,.2), inset 0 0 22px rgba(57,255,136,.08) !important;
+}
+
+@keyframes kolnWallBreath {
+  0% {
+    transform: translate3d(-1.4vw, -1vh, -1px) scale(1.055);
+    filter: grayscale(.84) contrast(1.6) brightness(.44) hue-rotate(74deg) saturate(1.8) blur(var(--cathedral-blur, .7px));
+  }
+  100% {
+    transform: translate3d(1.4vw, 1vh, -1px) scale(1.095);
+    filter: grayscale(.7) contrast(1.9) brightness(.56) hue-rotate(92deg) saturate(2.1) blur(var(--cathedral-blur, .7px));
+  }
+}
+
+@media (max-width: 900px) {
+  .room {
+    padding-block: clamp(3.8rem, 8vh, 6rem) !important;
+  }
+
+  .pirate-hud,
+  .object-wall,
+  .mindmap,
+  .music-grid,
+  .video-grid,
+  .bio,
+  .thoughts,
+  .contact .inner {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="5" seed="19"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .18"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#020705"/>
+      <stop offset=".48" stop-color="#06130b"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <radialGradient id="sick" cx=".5" cy=".3" r=".72">
+      <stop offset="0" stop-color="#36ff7f" stop-opacity=".22"/>
+      <stop offset=".38" stop-color="#114927" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".86"/>
+    </radialGradient>
+    <pattern id="scan" width="7" height="7" patternUnits="userSpaceOnUse">
+      <path d="M0 0H7" stroke="#b8ffd2" stroke-opacity=".08"/>
+      <path d="M0 0V7" stroke="#36ff7f" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#sky)"/>
+  <rect width="1600" height="1100" fill="url(#sick)"/>
+  <g opacity=".2">
+    <circle cx="1180" cy="210" r="230" fill="#36ff7f"/>
+    <circle cx="1180" cy="210" r="170" fill="#000"/>
+  </g>
+  <g fill="#050907" stroke="#b8ffd2" stroke-opacity=".25" stroke-width="3">
+    <path d="M452 960V334L522 250L584 334V960Z"/>
+    <path d="M1016 960V304L1088 210L1162 304V960Z"/>
+    <path d="M584 960V518L800 396L1016 518V960Z"/>
+    <path d="M420 360L522 92L620 360Z" fill="#07100a"/>
+    <path d="M982 330L1088 56L1196 330Z" fill="#07100a"/>
+    <path d="M594 526L800 292L1008 526Z" fill="#07100a"/>
+  </g>
+  <g stroke="#36ff7f" stroke-opacity=".34" stroke-width="2" fill="none" filter="url(#glow)">
+    <path d="M522 112L522 955M1088 84L1088 955M800 314V960"/>
+    <path d="M456 378H586M1022 348H1154M630 548H970"/>
+    <path d="M710 610A90 90 0 1 0 890 610A90 90 0 1 0 710 610"/>
+    <path d="M800 520V700M710 610H890M738 548L862 672M862 548L738 672"/>
+  </g>
+  <g fill="#0b1710" stroke="#b8ffd2" stroke-opacity=".18">
+    <path d="M490 442h64v158h-64zM490 662h64v194h-64z"/>
+    <path d="M1054 418h70v172h-70zM1054 650h70v206h-70z"/>
+    <path d="M708 740h56v220h-56zM836 740h56v220h-56z"/>
+  </g>
+  <g opacity=".16" stroke="#b8ffd2" stroke-width="1">
+    <path d="M0 870C210 820 340 930 544 860S910 800 1110 870S1390 930 1600 830" fill="none"/>
+    <path d="M0 930C250 880 390 990 620 925S1030 858 1240 930S1460 980 1600 920" fill="none"/>
+  </g>
+  <rect width="1600" height="1100" fill="url(#scan)"/>
+  <rect width="1600" height="1100" filter="url(#grain)"/>
+</svg>

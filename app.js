@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v20";
+const storageKey = "akayunggarcia-standalone-v21";
 const adminKey = "akayunggarcia-admin-ok";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
 const oldStorageKeys = [
@@ -20,7 +20,8 @@ const oldStorageKeys = [
     "akayunggarcia-standalone-v16",
   "akayunggarcia-standalone-v17",
   "akayunggarcia-standalone-v18",
-  "akayunggarcia-standalone-v19"
+  "akayunggarcia-standalone-v19",
+  "akayunggarcia-standalone-v20"
 ];
 
 const fallbackImage =
@@ -56,7 +57,7 @@ const initialData = {
     gridLayer: true,
     brutalType: true,
     chaos: 72,
-    wallImage: "./assets/cathedral-alien-wall.svg",
+    wallImage: "./assets/koln-cathedral-bg.svg",
     wallImageOpacity: 86,
     wallMotion: true,
     wallSpeed: 42,
@@ -126,27 +127,6 @@ const initialData = {
       kind: "audio"
     },
     {
-      label: "8 OU 80",
-      title: "8 ou 80",
-      text: "musica / link a confirmar",
-      link: "#musica",
-      kind: "audio"
-    },
-    {
-      label: "FAME",
-      title: "Fuck the Fame",
-      text: "musica / link a confirmar",
-      link: "#musica",
-      kind: "audio"
-    },
-    {
-      label: "THANOS",
-      title: "Falso Thanos",
-      text: "abrir no Spotify",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS",
-      kind: "audio"
-    },
-    {
       label: "INSTAGRAM",
       title: "@akaynggarcia",
       text: "fotos e posts",
@@ -180,24 +160,17 @@ const initialData = {
       type: "spotify",
       title: "Spotify",
       link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS",
-      note: "miragens / 8 ou 80 / fuck the fame / falso thanos",
+      note: "player oficial / previews / arquivo",
       items: [
-        { title: "Miragens", label: "faixa principal", image: fallbackImage },
-        { title: "8 ou 80", label: "link e capa a confirmar", image: fallbackImage },
-        { title: "Fuck the Fame", label: "link e capa a confirmar", image: fallbackImage },
-        { title: "Falso Thanos", label: "link e capa a confirmar", image: fallbackImage }
+        { title: "Miragens", label: "faixa principal", link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS", image: fallbackImage }
       ]
     },
     {
       type: "instagram",
       title: "Instagram",
       link: "https://instagram.com/akaynggarcia",
-      note: "fotos / capa / story / rastro",
-      items: [
-        { title: "foto perfil", label: "trocar por foto real", image: fallbackImage },
-        { title: "album pack", label: "capas e posts", image: fallbackImage },
-        { title: "frames", label: "prints e stories", image: fallbackImage }
-      ]
+      note: "fotos / capas / stories",
+      items: []
     },
     {
       type: "youtube",
@@ -269,28 +242,9 @@ const initialData = {
       mood: "spotify",
       description: "Atalho para ouvir pelo Spotify.",
       link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
-    },
-    {
-      title: "Falso Thanos",
-      cover: fallbackImage,
-      mood: "spotify",
-      description: "Atalho para abrir Falso Thanos pelo Spotify.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
-    },
-    {
-      title: "Proximos lancamentos",
-      cover: fallbackImage,
-      mood: "em atualizacao",
-      description: "Adicionar capa e link quando publicar.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
     }
   ],
-  gallery: [
-    { title: "foto 01", image: fallbackImage, caption: "substituir por foto real" },
-    { title: "print 01", image: fallbackImage, caption: "substituir por print real" },
-    { title: "capa 01", image: fallbackImage, caption: "substituir por capa real" },
-    { title: "frame 01", image: fallbackImage, caption: "substituir por frame real" }
-  ],
+  gallery: [],
   thoughts: [
     {
       tag: "fotos",
@@ -432,6 +386,11 @@ function renderSite() {
   applyTheme();
   document.title = `${data.artistName}`;
   const glitchClass = data.theme.glitch ? "glitch" : "";
+  const visibleMediaHubs = data.mediaHubs
+    .map((hub) => ({ ...hub, items: (hub.items || []).filter((item) => !isEmptyDisplayItem(item)) }))
+    .filter((hub) => hub.items.length > 0);
+  const visiblePortalObjects = data.portalObjects.filter((item) => !isEmptyDisplayItem(item));
+  const visibleGallery = data.gallery.filter((item) => !isEmptyDisplayItem(item));
 
   document.getElementById("site").innerHTML = `
     <section class="room hero">
@@ -450,7 +409,7 @@ function renderSite() {
     ${section("hud", "plataformas", "spotify / instagram / youtube", `
       <div class="pirate-hud">
         <div class="hud-scratch">archive online / neural links</div>
-        ${data.mediaHubs.map((hub, index) => `
+        ${visibleMediaHubs.map((hub, index) => `
           <article class="hud-window ${hub.type} h${index + 1}">
             <header>
               <span>${escapeHtml(hub.type)}</span>
@@ -479,7 +438,7 @@ function renderSite() {
         <div class="wall-stamp">YUNG<br>GARCIA</div>
         <div class="wall-warning">YUNG GARCIA</div>
         <div class="wall-note">Spotify, fotos, videoclipes, Instagram e contato.</div>
-        ${data.portalObjects.map((item, index) => `
+        ${visiblePortalObjects.map((item, index) => `
           <a class="portal-object ${item.kind} p${index + 1}" href="${escapeHtml(item.link)}" target="${item.link.startsWith("#") ? "_self" : "_blank"}" rel="noreferrer">
             <span>${escapeHtml(item.label)}</span>
             <strong>${escapeHtml(item.title)}</strong>
@@ -553,9 +512,9 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("visual", "fotos / capas / prints", "galeria", `
+    ${visibleGallery.length ? section("visual", "fotos / capas / prints", "galeria", `
       <div class="gallery">
-        ${data.gallery.map((item, index) => `
+        ${visibleGallery.map((item, index) => `
           <figure class="${index % 3 === 0 ? "big" : "small"}">
             <img src="${escapeHtml(item.image || fallbackImage)}" alt="${escapeHtml(item.title)}">
             <figcaption>
@@ -565,7 +524,7 @@ function renderSite() {
           </figure>
         `).join("")}
       </div>
-    `)}
+    `) : ""}
 
     ${section("ideias", "categorias extras", "videos, podcasts e contato", `
       <div class="thoughts">
@@ -613,6 +572,19 @@ function isUpcomingItem(item) {
   return ["proxim", "lancamento", "lançamento", "adicionar", "em atualizacao", "em atualização"].some((term) => text.includes(term));
 }
 
+function isEmptyDisplayItem(item) {
+  const text = `${item.label || ""} ${item.caption || ""} ${item.description || ""} ${item.text || ""}`.toLowerCase();
+  const hasRealLink = item.link && !String(item.link).startsWith("#");
+  const placeholderImage = !item.image || item.image === fallbackImage;
+  const placeholderText = [
+    "link e capa a confirmar",
+    "trocar por foto real",
+    "substituir por",
+    "link a confirmar"
+  ].some((term) => text.includes(term));
+  return placeholderImage && placeholderText && !hasRealLink;
+}
+
 function renderEditor() {
   const editor = document.getElementById("editor");
   const map = {
@@ -633,7 +605,7 @@ function input(path, label, type = "text") {
 
 function imageInput(path, label) {
   const value = getPath(path) || "";
-  const preview = value || "./assets/cathedral-alien-wall.svg";
+  const preview = value || "./assets/koln-cathedral-bg.svg";
   return `
     <div class="field image-field">
       <label>${label}</label>
@@ -862,7 +834,7 @@ function bindEditor() {
     field.addEventListener("input", () => {
       try {
         const preview = field.closest(".image-edit-row")?.querySelector("img");
-        if (preview) preview.src = field.value || "./assets/cathedral-alien-wall.svg";
+        if (preview) preview.src = field.value || "./assets/koln-cathedral-bg.svg";
         setPath(field.dataset.path, field.type === "checkbox" ? field.checked : field.value);
         saveData();
         renderSite();
