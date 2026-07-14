@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v21";
+const storageKey = "akayunggarcia-standalone-v22";
 const adminKey = "akayunggarcia-admin-ok";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
 const oldStorageKeys = [
@@ -21,7 +21,8 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v17",
   "akayunggarcia-standalone-v18",
   "akayunggarcia-standalone-v19",
-  "akayunggarcia-standalone-v20"
+  "akayunggarcia-standalone-v20",
+  "akayunggarcia-standalone-v21"
 ];
 
 const fallbackImage =
@@ -950,6 +951,13 @@ function applyAnimationPreset(name) {
 }
 
 function setupAdmin() {
+  const panel = document.getElementById("yx-admin-777");
+  const isAdminRoute = location.hash === "#yx-admin-777" || /\/admin\/?$/.test(location.pathname);
+  panel.hidden = !isAdminRoute;
+  document.body.classList.toggle("admin-route", isAdminRoute);
+  if (!isAdminRoute) return;
+
+  setTimeout(() => panel.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
   if (sessionStorage.getItem(adminKey) === "true") unlockAdmin();
 
   document.getElementById("loginBtn").addEventListener("click", async () => {
@@ -979,6 +987,26 @@ function setupAdmin() {
   document.getElementById("exportBtn").addEventListener("click", () => {
     document.getElementById("jsonBox").value = JSON.stringify(data, null, 2);
     showSaveStatus("json exportado");
+  });
+
+  document.getElementById("copyJsonBtn").addEventListener("click", async () => {
+    const value = JSON.stringify(data, null, 2);
+    document.getElementById("jsonBox").value = value;
+    await navigator.clipboard.writeText(value);
+    showSaveStatus("json copiado");
+  });
+
+  document.getElementById("downloadJsonBtn").addEventListener("click", () => {
+    const value = JSON.stringify(data, null, 2);
+    document.getElementById("jsonBox").value = value;
+    const blob = new Blob([value], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "yung-garcia-archive-design.json";
+    link.click();
+    URL.revokeObjectURL(url);
+    showSaveStatus("backup baixado");
   });
 
   document.getElementById("importBtn").addEventListener("click", () => {

@@ -657,15 +657,33 @@ body.wall-motion #wallImageLayer {
 }
 
 .admin-panel {
+  display: none;
   background:
     radial-gradient(circle at 20% 0%, rgba(54,255,127,.14), transparent 24rem),
     linear-gradient(135deg, rgba(0,0,0,.98), rgba(1,18,10,.96)) !important;
+}
+
+body.admin-route .admin-panel {
+  display: block;
 }
 
 .admin-shell {
   border-color: rgba(184,255,210,.24) !important;
   background: rgba(0,0,0,.56) !important;
   box-shadow: 0 30px 120px rgba(0,0,0,.78), inset 0 0 90px rgba(54,255,127,.05) !important;
+}
+
+.admin-note,
+.tool-help,
+.admin-preview p {
+  color: rgba(238,248,237,.72) !important;
+  line-height: 1.45;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
 }
 
 .preset-grid {

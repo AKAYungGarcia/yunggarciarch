@@ -10,7 +10,7 @@
       content="Arquivo digital de Yung Garcia: musicas, videoclipes, fotos, pre-save e links oficiais."
     />
     <link rel="stylesheet" href="./styles.css?v=19" />
-    <link rel="stylesheet" href="./tactical.css?v=5" />
+    <link rel="stylesheet" href="./tactical.css?v=6" />
   </head>
   <body>
     <div id="boot" class="boot">
@@ -42,15 +42,16 @@
     <button id="audioToggle" class="audio-toggle" type="button">ruido</button>
     <main id="site"></main>
 
-    <section id="yx-admin-777" class="admin-panel" aria-label="Painel de administracao">
+    <section id="yx-admin-777" class="admin-panel" aria-label="Painel de administracao" hidden>
       <div class="admin-shell">
         <aside>
           <p class="kicker">/painel privado</p>
-          <h2>painel vivo</h2>
+          <h2>design control</h2>
+          <p class="admin-note">Edita o visual neste navegador. Para publicar para todo mundo, exporte o JSON e atualize o site no GitHub.</p>
           <div id="loginBox" class="login-box">
             <input id="adminPass" type="password" placeholder="senha" autocomplete="current-password" />
             <button id="loginBtn" type="button">entrar</button>
-            <small>Acesso privado. Nao compartilhe este link.</small>
+            <small>Painel oculto. Nao compartilhe este caminho.</small>
           </div>
 
           <div id="adminTools" class="admin-tools hidden">
@@ -66,6 +67,8 @@
             <div class="admin-actions">
               <button id="saveBtn" type="button">salvar</button>
               <button id="exportBtn" type="button">exportar json</button>
+              <button id="copyJsonBtn" type="button">copiar json</button>
+              <button id="downloadJsonBtn" type="button">baixar backup</button>
               <button id="importBtn" type="button">importar json</button>
               <button id="resetBtn" type="button">reset</button>
             </div>
@@ -74,11 +77,11 @@
           </div>
         </aside>
         <div class="admin-preview">
-          <p>preview em tempo real: role a pagina por tras ou edite aqui e veja mudar.</p>
+          <p>preview em tempo real. O salvamento local fica no seu navegador; exportar JSON serve para publicar a versao final depois.</p>
         </div>
       </div>
     </section>
 
-    <script src="./app.js?v=21"></script>
+    <script src="./app.js?v=22"></script>
   </body>
 </html>
