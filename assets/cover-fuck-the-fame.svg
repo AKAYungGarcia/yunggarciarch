@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs><filter id="n"><feTurbulence baseFrequency=".66" numOctaves="5" seed="13"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+  <rect width="900" height="900" fill="#000"/>
+  <path d="M0 0H900V900H0Z" fill="#06130b"/>
+  <rect width="900" height="900" filter="url(#n)" opacity=".24"/>
+  <g stroke="#36ff7f" fill="none" opacity=".42">
+    <path d="M110 250H790M110 330H790M110 570H790M110 650H790"/>
+    <path d="M180 150L720 750M720 150L180 750" stroke-width="10" opacity=".32"/>
+    <rect x="166" y="166" width="568" height="568" rx="18"/>
+  </g>
+  <text x="70" y="190" fill="#b8ffd2" font-family="monospace" font-size="28">ANTI-FAME TRANSMISSION</text>
+  <text x="72" y="430" fill="#36ff7f" font-family="Arial Black, Impact, sans-serif" font-size="92">FUCK</text>
+  <text x="72" y="540" fill="#b8ffd2" font-family="Arial Black, Impact, sans-serif" font-size="92">THE FAME</text>
+  <text x="70" y="805" fill="#36ff7f" font-family="monospace" font-size="28">YUNG GARCIA ARCHIVE</text>
+</svg>

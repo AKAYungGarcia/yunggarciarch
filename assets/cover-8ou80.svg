@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs><filter id="n"><feTurbulence baseFrequency=".9" numOctaves="5" seed="80"/></filter></defs>
+  <rect width="900" height="900" fill="#020604"/>
+  <rect x="60" y="60" width="780" height="780" fill="none" stroke="#36ff7f" stroke-width="2" opacity=".45"/>
+  <rect width="900" height="900" filter="url(#n)" opacity=".12"/>
+  <g fill="none" stroke="#b8ffd2" opacity=".55">
+    <path d="M132 450H768M450 132V768"/>
+    <path d="M190 190L710 710M710 190L190 710"/>
+    <circle cx="450" cy="450" r="210"/>
+    <circle cx="450" cy="450" r="82"/>
+  </g>
+  <text x="66" y="132" fill="#b8ffd2" font-family="monospace" font-size="30">NO MIDDLE SIGNAL</text>
+  <text x="75" y="494" fill="#36ff7f" font-family="Arial Black, Impact, sans-serif" font-size="170">8/80</text>
+  <text x="68" y="810" fill="#b8ffd2" font-family="monospace" font-size="26">YUNG GARCIA / SPOTIFY ROUTE</text>
+</svg>

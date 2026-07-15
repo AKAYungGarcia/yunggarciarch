@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v23";
+const storageKey = "akayunggarcia-standalone-v24";
 const adminKey = "akayunggarcia-admin-ok";
 const adminTokenKey = "akayunggarcia-admin-token";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
@@ -25,19 +25,23 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v19",
   "akayunggarcia-standalone-v20",
   "akayunggarcia-standalone-v21",
-  "akayunggarcia-standalone-v22"
+  "akayunggarcia-standalone-v22",
+  "akayunggarcia-standalone-v23"
 ];
 
 const fallbackImage =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%2300d4ff'/%3E%3Cstop offset='.45' stop-color='%23d72bff'/%3E%3Cstop offset='1' stop-color='%23030208'/%3E%3C/radialGradient%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23g)'/%3E%3Crect width='900' height='900' filter='url(%23n)' opacity='.24'/%3E%3Cpath d='M60 680 C210 520 300 800 440 610 S680 390 840 560' fill='none' stroke='%23fff' opacity='.28' stroke-width='3'/%3E%3C/svg%3E";
 
-const designVersion = "videoclipes-v6";
+const designVersion = "final-product-v1";
+
+const spotifyArtistUrl = "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS";
+const instagramUrl = "https://instagram.com/akaynggarcia";
 
 const initialData = {
   designVersion,
   artistName: "Yung Garcia Archive",
-  tagline: "musicas, videos, fotos, pre-save e links oficiais",
-  citySignal: "arquivo online",
+  tagline: "som, video, contato e arquivo visual.",
+  citySignal: "alien military archive / online",
   spotifyEmbed:
     "https://open.spotify.com/embed/artist/2TIEjez69Y8t9qvfWKeyXS?utm_source=generator&theme=0",
   theme: {
@@ -76,42 +80,42 @@ const initialData = {
     scrollDepth: 38,
     performanceMode: false
   },
-  phrases: ["spotify.", "instagram.", "youtube.", "fotos."],
+  phrases: ["spotify.", "youtube.", "instagram.", "orcamento."],
   worldNodes: [
     {
       type: "spotify",
       title: "Spotify",
-      text: "player e previews.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
+      text: "ouvir agora.",
+      link: spotifyArtistUrl
     },
     {
       type: "instagram",
       title: "@akaynggarcia",
-      text: "fotos e atualizacoes.",
-      link: "https://instagram.com/akaynggarcia"
+      text: "fotos, contato e bastidores.",
+      link: instagramUrl
     },
     {
       type: "youtube",
       title: "YouTube",
-      text: "videoclipes, podcasts e bastidores.",
+      text: "videoclipes e arquivo audiovisual.",
       link: "#videoclipes"
     },
     {
       type: "fotos",
       title: "Fotos",
-      text: "galeria, capas e prints.",
+      text: "capas, frames e identidade.",
       link: "#visual"
     },
     {
       type: "musicas",
       title: "Musicas",
-      text: "catalogo e atalhos do Spotify.",
+      text: "Miragens, 8 ou 80, Fuck the Fame, Designer e Perc.",
       link: "#musica"
     },
     {
       type: "contato",
-      title: "Contato",
-      text: "email e redes.",
+      title: "Orcamento",
+      text: "feat, show, collab e projeto.",
       link: "#contato"
     }
   ],
@@ -119,42 +123,42 @@ const initialData = {
     {
       label: "SPOTIFY",
       title: "Spotify",
-      text: "player / previews",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS",
+      text: "ouvir catalogo",
+      link: spotifyArtistUrl,
       kind: "audio"
     },
     {
       label: "MIRAGENS",
       title: "Miragens",
-      text: "faixa principal",
+      text: "faixa principal / abrir player",
+      link: "#musica",
+      kind: "audio"
+    },
+    {
+      label: "TOP 5",
+      title: "Destaques",
+      text: "Miragens, 8 ou 80, Fuck the Fame, Designer, Perc",
       link: "#musica",
       kind: "audio"
     },
     {
       label: "INSTAGRAM",
       title: "@akaynggarcia",
-      text: "fotos e posts",
-      link: "https://instagram.com/akaynggarcia",
+      text: "contato e visual",
+      link: instagramUrl,
       kind: "social"
     },
     {
       label: "YOUTUBE",
       title: "videoclipes",
-      text: "Miragens, Guapanese e Designer",
+      text: "clipes e arquivo",
       link: "#videoclipes",
       kind: "video"
     },
     {
-      label: "FOTOS",
-      title: "galeria",
-      text: "fotos e capas",
-      link: "#visual",
-      kind: "file"
-    },
-    {
-      label: "CONTATO",
+      label: "ORCAMENTO",
       title: "contato",
-      text: "email e redes",
+      text: "show / feat / collab",
       link: "#contato",
       kind: "mind"
     }
@@ -163,17 +167,21 @@ const initialData = {
     {
       type: "spotify",
       title: "Spotify",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS",
-      note: "player oficial / previews / arquivo",
+      link: spotifyArtistUrl,
+      note: "Miragens / 8 ou 80 / Fuck the Fame / Designer / Perc",
       items: [
-        { title: "Miragens", label: "faixa principal", link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS", image: fallbackImage }
+        { title: "Miragens", label: "faixa principal", link: spotifyArtistUrl, image: "./assets/cover-miragens.svg" },
+        { title: "8 ou 80", label: "destaque", link: spotifyArtistUrl, image: "./assets/cover-8ou80.svg" },
+        { title: "Fuck the Fame", label: "destaque", link: spotifyArtistUrl, image: "./assets/cover-fuck-the-fame.svg" },
+        { title: "Designer", label: "destaque", link: spotifyArtistUrl, image: "./assets/cover-designer.svg" },
+        { title: "Perc", label: "destaque", link: spotifyArtistUrl, image: "./assets/cover-perc.svg" }
       ]
     },
     {
       type: "instagram",
       title: "Instagram",
-      link: "https://instagram.com/akaynggarcia",
-      note: "fotos / capas / stories",
+      link: instagramUrl,
+      note: "contato / fotos / bastidores",
       items: []
     },
     {
@@ -212,69 +220,76 @@ const initialData = {
     }
   ],
   about: [
-    "Arquivo visual e musical de Yung Garcia.",
-    "Faixas e atalhos conectados ao Spotify.",
-    "Conteudo: musicas, fotos, videoclipes, podcasts e atalhos.",
-    "Atualizacoes: Instagram e Spotify.",
-    "Contato: email e redes."
+    "Rapper independente.",
+    "Arquivo central: som, clipe, visual e contato.",
+    "Destaques: Miragens, 8 ou 80, Fuck the Fame, Designer e Perc.",
+    "Para ouvir: Spotify.",
+    "Para contato, feat, show, collab ou orcamento: Instagram/email."
   ],
   tracks: [
     {
       title: "Miragens",
-      cover: fallbackImage,
+      cover: "./assets/cover-miragens.svg",
       mood: "faixa principal",
-      description: "Preview no Spotify.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
-    },
-    {
-      title: "Catalogo",
-      cover: fallbackImage,
-      mood: "spotify",
-      description: "Outras faixas no perfil.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
+      description: "O centro emocional do arquivo.",
+      link: spotifyArtistUrl
     },
     {
       title: "8 ou 80",
-      cover: fallbackImage,
-      mood: "spotify",
-      description: "Atalho para ouvir pelo Spotify.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
+      cover: "./assets/cover-8ou80.svg",
+      mood: "destaque",
+      description: "Energia extrema, sem meio termo.",
+      link: spotifyArtistUrl
     },
     {
       title: "Fuck the Fame",
-      cover: fallbackImage,
-      mood: "spotify",
-      description: "Atalho para ouvir pelo Spotify.",
-      link: "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS"
+      cover: "./assets/cover-fuck-the-fame.svg",
+      mood: "destaque",
+      description: "Anti-fama, arquivo sujo, foco no som.",
+      link: spotifyArtistUrl
+    },
+    {
+      title: "Designer",
+      cover: "./assets/cover-designer.svg",
+      mood: "destaque / video",
+      description: "Faixa conectada ao arquivo audiovisual.",
+      link: spotifyArtistUrl
+    },
+    {
+      title: "Perc",
+      cover: "./assets/cover-perc.svg",
+      mood: "destaque",
+      description: "Mais agressiva, seca e subterranea.",
+      link: spotifyArtistUrl
     }
   ],
   gallery: [],
   thoughts: [
     {
       tag: "fotos",
-      title: "Fotos",
-      body: "Galeria para fotos, capas, prints e material visual."
+      title: "Visual",
+      body: "Capas, frames e fotos entram aqui quando forem selecionadas."
     },
     {
       tag: "videos",
       title: "Videoclipes",
-      body: "Espaco para clipes, teasers, cortes e bastidores."
+      body: "Clipes e cortes conectados ao YouTube."
     },
     {
       tag: "spotify",
       title: "Spotify",
-      body: "Player com previews do perfil."
+      body: "Onde o visitante deve ouvir primeiro."
     },
     {
       tag: "contato",
-      title: "Contato",
-      body: "Email, Instagram e links oficiais."
+      title: "Orcamento",
+      body: "Feats, shows, collabs, campanhas e projetos."
     }
   ],
   contact: {
     email: "contato@yunggarcia.art",
-    instagram: "https://instagram.com/akaynggarcia",
-    text: "email, Instagram e atalhos."
+    instagram: instagramUrl,
+    text: "Para feat, show, collab, campanha, videoclipe ou orcamento: chame no Instagram ou mande email."
   }
 };
 
@@ -464,15 +479,16 @@ function renderSite() {
         <p class="tagline">${escapeHtml(data.tagline)}</p>
         <div class="actions">
           <a href="#musica">ouvir</a>
-          <a href="#identidade">entrar</a>
-          <a href="#visual">explorar</a>
+          <a href="#videoclipes">videos</a>
+          <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">instagram</a>
+          <a href="#contato">orcamento</a>
         </div>
       </div>
     </section>
 
-    ${section("hud", "plataformas", "spotify / instagram / youtube", `
+    ${section("hud", "hub principal", "spotify / instagram / youtube / contato", `
       <div class="pirate-hud">
-        <div class="hud-scratch">archive online / neural links</div>
+        <div class="hud-scratch">alien archive / listener route</div>
         ${visibleMediaHubs.map((hub, index) => `
           <article class="hud-window ${hub.type} h${index + 1}">
             <header>
@@ -497,11 +513,11 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("portal", "access grid", "atalhos", `
+    ${section("portal", "rotas", "links essenciais", `
       <div class="object-wall">
         <div class="wall-stamp">YUNG<br>GARCIA</div>
         <div class="wall-warning">YUNG GARCIA</div>
-        <div class="wall-note">Spotify, fotos, videoclipes, Instagram e contato.</div>
+        <div class="wall-note">Spotify, YouTube, Instagram e orcamento.</div>
         ${visiblePortalObjects.map((item, index) => `
           <a class="portal-object ${item.kind} p${index + 1}" href="${escapeHtml(item.link)}" target="${item.link.startsWith("#") ? "_self" : "_blank"}" rel="noreferrer">
             <span>${escapeHtml(item.label)}</span>
@@ -512,12 +528,12 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("mundo", "mapa de conteudo", "categorias", `
+    ${section("mundo", "arquivo", "mapa rapido", `
       <div class="mindmap">
         <div class="mind-center">
           <span class="tag">centro</span>
           <h3>${escapeHtml(data.artistName)}</h3>
-          <p>musicas, fotos, videos e atalhos.</p>
+          <p>som, video, visual e contato.</p>
         </div>
         ${data.worldNodes.map((node, index) => `
           <a class="mind-node n${index + 1}" href="${escapeHtml(node.link)}" target="${node.link.startsWith("#") ? "_self" : "_blank"}" rel="noreferrer">
@@ -529,7 +545,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("musica", "spotify / previews", "player Spotify", `
+    ${section("musica", "som", "destaques no Spotify", `
       <div class="music-grid">
         <div class="glass"><iframe class="spotify" src="${escapeHtml(data.spotifyEmbed)}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify"></iframe></div>
         <div class="tracks">
@@ -540,7 +556,7 @@ function renderSite() {
                 <span class="mood">${escapeHtml(track.mood)}</span>
                 <h3>${escapeHtml(track.title)}</h3>
                 <p>${escapeHtml(track.description)}</p>
-                <a href="${escapeHtml(track.link)}" target="_blank" rel="noreferrer">play</a>
+                <a href="${escapeHtml(track.link)}" target="_blank" rel="noreferrer">ouvir</a>
               </div>
             </article>
           `).join("")}
@@ -548,7 +564,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("videoclipes", "videoclipes", "subpasta / YouTube", `
+    ${section("videoclipes", "video", "videoclipes / YouTube", `
       <div class="video-grid">
         ${data.videos.map((video) => `
           <article class="video-card glass">
@@ -569,7 +585,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("identidade", "informacoes", "perfil", `
+    ${section("identidade", "perfil", "arquivo do artista", `
       <div class="bio">
         <p class="vertical">musica / fotos / videos / atalhos</p>
         <div class="bio-lines">${data.about.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}</div>
@@ -590,7 +606,7 @@ function renderSite() {
       </div>
     `) : ""}
 
-    ${section("ideias", "categorias extras", "videos, podcasts e contato", `
+    ${section("ideias", "servicos", "som / visual / contato", `
       <div class="thoughts">
         ${data.thoughts.map((item) => `
           <article class="thought glass">
@@ -604,11 +620,12 @@ function renderSite() {
 
     <section id="contato" class="room contact">
       <div class="inner">
-        <h2>contato e atalhos</h2>
+        <h2>contato / orcamento</h2>
         <p>${escapeHtml(data.contact.text)}</p>
         <div class="actions">
           <a href="mailto:${escapeHtml(data.contact.email)}">email</a>
           <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">instagram</a>
+          <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">pedir orcamento</a>
         </div>
       </div>
     </section>

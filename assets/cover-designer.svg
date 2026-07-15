@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs><linearGradient id="x" x1="0" x2="1"><stop stop-color="#000"/><stop offset=".5" stop-color="#0b2a16"/><stop offset="1" stop-color="#000"/></linearGradient></defs>
+  <rect width="900" height="900" fill="url(#x)"/>
+  <g fill="none" stroke="#b8ffd2" opacity=".45">
+    <path d="M450 110L760 290V650L450 790L140 650V290Z"/>
+    <path d="M450 110V790M140 290L760 650M760 290L140 650"/>
+    <circle cx="450" cy="450" r="148"/>
+  </g>
+  <g fill="#36ff7f" opacity=".16">
+    <path d="M450 260L600 350V530L450 615L300 530V350Z"/>
+  </g>
+  <text x="70" y="138" fill="#b8ffd2" font-family="monospace" font-size="28">VISUAL SYSTEM / VIDEO LINK</text>
+  <text x="68" y="492" fill="#36ff7f" font-family="Arial Black, Impact, sans-serif" font-size="116">DESIGNER</text>
+  <text x="70" y="812" fill="#b8ffd2" font-family="monospace" font-size="26">YUNG GARCIA / ARCHIVE CUT</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs>
+    <filter id="n"><feTurbulence baseFrequency=".75" numOctaves="4" seed="8"/><feColorMatrix type="saturate" values="0"/></filter>
+    <filter id="g"><feGaussianBlur stdDeviation="3"/><feColorMatrix values="0 0 0 0 0.21 0 0 0 0 1 0 0 0 0 0.5 0 0 0 1 0"/></filter>
+    <radialGradient id="r" cx=".48" cy=".42" r=".62"><stop offset="0" stop-color="#b8ffd2"/><stop offset=".18" stop-color="#36ff7f"/><stop offset=".62" stop-color="#06130b"/><stop offset="1" stop-color="#000"/></radialGradient>
+  </defs>
+  <rect width="900" height="900" fill="#000"/>
+  <rect width="900" height="900" fill="url(#r)" opacity=".92"/>
+  <rect width="900" height="900" filter="url(#n)" opacity=".22"/>
+  <path d="M122 688C238 484 318 780 458 526s230-90 322-260" fill="none" stroke="#dffff0" stroke-width="3" opacity=".38"/>
+  <circle cx="450" cy="430" r="168" fill="none" stroke="#36ff7f" stroke-width="2" opacity=".55"/>
+  <circle cx="450" cy="430" r="78" fill="none" stroke="#b8ffd2" stroke-width="1.5" opacity=".72"/>
+  <g stroke="#b8ffd2" opacity=".38"><path d="M90 120H810M90 780H810M120 90V810M780 90V810"/></g>
+  <text x="64" y="104" fill="#b8ffd2" font-family="monospace" font-size="28">YG-ARCHIVE / 001</text>
+  <text x="64" y="802" fill="#36ff7f" font-family="Arial Black, Impact, sans-serif" font-size="82">MIRAGENS</text>
+</svg>

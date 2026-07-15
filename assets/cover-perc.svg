@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs><filter id="n"><feTurbulence baseFrequency="1.1" numOctaves="3" seed="777"/></filter></defs>
+  <rect width="900" height="900" fill="#000"/>
+  <rect x="80" y="80" width="740" height="740" fill="#031008" stroke="#36ff7f" stroke-width="3" opacity=".9"/>
+  <rect width="900" height="900" filter="url(#n)" opacity=".14"/>
+  <g stroke="#36ff7f" fill="none" opacity=".58">
+    <path d="M118 220H782M118 680H782M220 118V782M680 118V782"/>
+    <path d="M450 160L540 450L450 740L360 450Z" stroke-width="8"/>
+    <path d="M250 450H650" stroke-width="12"/>
+  </g>
+  <text x="70" y="142" fill="#b8ffd2" font-family="monospace" font-size="28">AGGRESSIVE ROUTE / 005</text>
+  <text x="126" y="522" fill="#36ff7f" font-family="Arial Black, Impact, sans-serif" font-size="170">PERC</text>
+  <text x="70" y="810" fill="#b8ffd2" font-family="monospace" font-size="26">NO CLEAN SIGNAL</text>
+</svg>
