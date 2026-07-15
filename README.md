@@ -1,8 +1,9 @@
 # Yung Garcia Archive
 
-Site estatico de Yung Garcia / akayunggarcia.
+Site de Yung Garcia / akayunggarcia.
 
-Esta versao roda sem npm, sem build, sem servidor e sem baixar dependencias.
+O frontend continua rodando sem npm, sem build e sem baixar dependencias.
+Agora tambem existe um backend real preparado em `backend/` para salvar o admin globalmente.
 
 ## Abrir localmente
 
@@ -32,8 +33,22 @@ O link ficara parecido com:
 
 O painel abre por:
 
-`index.html#yx-admin-777`
+`/admin/`
 
-As edicoes ficam salvas no navegador. Use `exportar json` para backup.
+Sem backend configurado, as edicoes ficam salvas no navegador.
+Com backend configurado em `config.js`, o botao `salvar` publica o design para todos os visitantes.
 
-Observacao: GitHub Pages e site estatico. Ele publica arquivos, mas nao oferece login seguro de backend. Para admin realmente privado, precisa Firebase/Supabase/servidor.
+## Backend real
+
+A API esta em `backend/`.
+
+Ela inclui:
+
+- login admin com senha hash;
+- token JWT;
+- MongoDB para salvar o design;
+- endpoint publico para carregar o site;
+- endpoint protegido para salvar alteracoes;
+- upload protegido de imagens/videos.
+
+Leia `backend/README.md` para publicar em Render, Railway, Fly.io ou VPS.

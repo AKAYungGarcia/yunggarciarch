@@ -1,6 +1,8 @@
-const storageKey = "akayunggarcia-standalone-v22";
+const storageKey = "akayunggarcia-standalone-v23";
 const adminKey = "akayunggarcia-admin-ok";
+const adminTokenKey = "akayunggarcia-admin-token";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
+const apiBase = String(window.YUNG_GARCIA_API_BASE || "").replace(/\/$/, "");
 const oldStorageKeys = [
   "akayunggarcia-standalone-v1",
   "akayunggarcia-standalone-v2",
@@ -22,7 +24,8 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v18",
   "akayunggarcia-standalone-v19",
   "akayunggarcia-standalone-v20",
-  "akayunggarcia-standalone-v21"
+  "akayunggarcia-standalone-v21",
+  "akayunggarcia-standalone-v22"
 ];
 
 const fallbackImage =
@@ -291,6 +294,66 @@ function loadData() {
 
 function saveData() {
   localStorage.setItem(storageKey, JSON.stringify(data));
+}
+
+async function loadRemoteData() {
+  if (!apiBase) return;
+  try {
+    const response = await fetch(`${apiBase}/api/site`, { cache: "no-store" });
+    if (!response.ok) throw new Error("backend indisponivel");
+    const payload = await response.json();
+    data = normalizeData(payload.data || structuredClone(initialData));
+    saveData();
+    renderSite();
+    if (!document.getElementById("adminTools")?.classList.contains("hidden")) renderEditor();
+    showSaveStatus("backend conectado");
+  } catch {
+    showSaveStatus("backend offline; usando local");
+  }
+}
+
+async function loginRemoteAdmin(password) {
+  if (!apiBase) return false;
+  try {
+    const response = await fetch(`${apiBase}/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password })
+    });
+    if (!response.ok) return false;
+    const payload = await response.json();
+    sessionStorage.setItem(adminTokenKey, payload.token);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function saveDataRemote(message = "salvo") {
+  saveData();
+  if (!apiBase) {
+    showSaveStatus(`${message} local`);
+    return;
+  }
+  const token = sessionStorage.getItem(adminTokenKey);
+  if (!token) {
+    showSaveStatus("salvo local; login backend pendente");
+    return;
+  }
+  try {
+    const response = await fetch(`${apiBase}/api/site`, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ data })
+    });
+    if (!response.ok) throw new Error("falha ao publicar");
+    showSaveStatus(`${message} no backend`);
+  } catch {
+    showSaveStatus("salvo local; backend falhou");
+  }
 }
 
 function showSaveStatus(message = "salvo") {
@@ -961,10 +1024,13 @@ function setupAdmin() {
   if (sessionStorage.getItem(adminKey) === "true") unlockAdmin();
 
   document.getElementById("loginBtn").addEventListener("click", async () => {
-    const typedHash = await sha256Hex(document.getElementById("adminPass").value);
-    if (typedHash === adminPassHash) {
+    const password = document.getElementById("adminPass").value;
+    const remoteOk = await loginRemoteAdmin(password);
+    const typedHash = await sha256Hex(password);
+    if (remoteOk || typedHash === adminPassHash) {
       sessionStorage.setItem(adminKey, "true");
       unlockAdmin();
+      showSaveStatus(apiBase ? "admin conectado ao backend" : "admin local");
     } else {
       showSaveStatus("senha incorreta");
     }
@@ -977,11 +1043,10 @@ function setupAdmin() {
     });
   });
 
-  document.getElementById("saveBtn").addEventListener("click", () => {
-    saveData();
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+    await saveDataRemote("salvo");
     renderSite();
     renderEditor();
-    showSaveStatus("salvo");
   });
 
   document.getElementById("exportBtn").addEventListener("click", () => {
@@ -1009,20 +1074,18 @@ function setupAdmin() {
     showSaveStatus("backup baixado");
   });
 
-  document.getElementById("importBtn").addEventListener("click", () => {
+  document.getElementById("importBtn").addEventListener("click", async () => {
     data = JSON.parse(document.getElementById("jsonBox").value);
-    saveData();
+    await saveDataRemote("importado");
     renderSite();
     renderEditor();
-    showSaveStatus("importado e salvo");
   });
 
-  document.getElementById("resetBtn").addEventListener("click", () => {
+  document.getElementById("resetBtn").addEventListener("click", async () => {
     data = structuredClone(initialData);
-    saveData();
+    await saveDataRemote("reset salvo");
     renderSite();
     renderEditor();
-    showSaveStatus("reset salvo");
   });
 }
 
@@ -1235,6 +1298,7 @@ function setupParallax3D() {
 }
 
 renderSite();
+loadRemoteData();
 setupRain();
 setupAudio();
 setupCursorLight();
