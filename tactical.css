@@ -2273,3 +2273,197 @@ body::before {
     min-height: 128px !important;
   }
 }
+
+/* V26: organized professional layout, no overlapping HUD, stronger visible font change. */
+:root {
+  --font-command: "Haettenschweiler", "Agency FB", "Bahnschrift SemiCondensed", "Arial Narrow", Impact, sans-serif !important;
+  --font-ui: "Bahnschrift", "Segoe UI", Arial, sans-serif !important;
+  --font-data: "Cascadia Mono", "Consolas", "Courier New", monospace !important;
+}
+
+.boot h1,
+.hero h1,
+.section-head h2,
+.contact h2,
+.hud-window h3,
+.portal-object strong,
+.mind-node strong,
+.track h3,
+.video-copy h3,
+.thought h3 {
+  font-family: var(--font-command) !important;
+  letter-spacing: .035em !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+.hero h1 {
+  letter-spacing: .02em !important;
+  -webkit-text-stroke: 1px rgba(184,255,210,.14);
+  transform: scaleX(.86);
+  transform-origin: left center;
+}
+
+.section-head h2,
+.contact h2 {
+  letter-spacing: .045em !important;
+  transform: scaleX(.9);
+  transform-origin: left center;
+}
+
+.pirate-hud,
+.object-wall,
+.mindmap {
+  height: auto !important;
+  min-height: 0 !important;
+  display: grid !important;
+  gap: clamp(1rem, 2vw, 1.5rem) !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+
+.pirate-hud {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  padding: clamp(1.1rem, 2.2vw, 2rem) !important;
+}
+
+.object-wall {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  padding: clamp(1.2rem, 2.4vw, 2.2rem) !important;
+}
+
+.mindmap {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  padding: clamp(1.2rem, 2.4vw, 2.2rem) !important;
+}
+
+.hud-window,
+.hud-window.spotify,
+.hud-window.instagram,
+.hud-window.youtube,
+.portal-object,
+.portal-object.audio,
+.portal-object.danger,
+.portal-object.social,
+.portal-object.video,
+.portal-object.file,
+.portal-object.mind,
+.mind-node,
+.mind-node.n1,
+.mind-node.n2,
+.mind-node.n3,
+.mind-node.n4,
+.mind-node.n5 {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  transform: none !important;
+  rotate: none !important;
+}
+
+.hud-window {
+  min-height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.hud-window .media-strip {
+  margin-top: auto !important;
+}
+
+.wall-stamp,
+.wall-warning,
+.wall-note {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  grid-column: 1 / -1;
+}
+
+.wall-stamp {
+  font-family: var(--font-command) !important;
+  font-size: clamp(3rem, 8vw, 7rem) !important;
+  line-height: .78 !important;
+  opacity: .16 !important;
+  pointer-events: none;
+}
+
+.wall-warning,
+.wall-note {
+  font-family: var(--font-data) !important;
+  letter-spacing: .12em !important;
+  opacity: .72 !important;
+}
+
+.mind-center {
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  grid-column: 1 / -1;
+  max-width: none !important;
+}
+
+.portal-object,
+.mind-node,
+.hud-window,
+.track,
+.video-card,
+.thought {
+  min-height: 150px;
+}
+
+.portal-object:hover,
+.mind-node:hover,
+.hud-window:hover,
+.track:hover,
+.video-card:hover,
+.thought:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+}
+
+.music-grid {
+  grid-template-columns: minmax(300px, .95fr) minmax(320px, 1.05fr) !important;
+  gap: clamp(1rem, 2.6vw, 2rem) !important;
+}
+
+.tracks {
+  max-height: none !important;
+}
+
+.track {
+  overflow: hidden !important;
+}
+
+.track h3 {
+  font-size: clamp(1.7rem, 3.2vw, 3rem) !important;
+}
+
+.track p {
+  font-size: .98rem !important;
+}
+
+@media (max-width: 980px) {
+  .object-wall,
+  .mindmap,
+  .music-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pirate-hud {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero h1,
+  .section-head h2,
+  .contact h2 {
+    transform: none !important;
+  }
+}
