@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v31";
+const storageKey = "akayunggarcia-standalone-v32";
 const adminKey = "akayunggarcia-admin-ok";
 const adminTokenKey = "akayunggarcia-admin-token";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
@@ -33,13 +33,14 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v27",
   "akayunggarcia-standalone-v28",
   "akayunggarcia-standalone-v29",
-  "akayunggarcia-standalone-v30"
+  "akayunggarcia-standalone-v30",
+  "akayunggarcia-standalone-v31"
 ];
 
 const fallbackImage =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%2300d4ff'/%3E%3Cstop offset='.45' stop-color='%23d72bff'/%3E%3Cstop offset='1' stop-color='%23030208'/%3E%3C/radialGradient%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23g)'/%3E%3Crect width='900' height='900' filter='url(%23n)' opacity='.24'/%3E%3Cpath d='M60 680 C210 520 300 800 440 610 S680 390 840 560' fill='none' stroke='%23fff' opacity='.28' stroke-width='3'/%3E%3C/svg%3E";
 
-const designVersion = "cyber-goth-brand-v1";
+const designVersion = "listener-chamber-v1";
 
 const spotifyArtistUrl = "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS";
 const instagramUrl = "https://instagram.com/akaynggarcia";
@@ -481,21 +482,45 @@ function renderSite() {
   document.getElementById("site").innerHTML = `
     <section class="room hero">
       <div class="inner">
-        <p class="kicker boot-signal">${escapeHtml(data.citySignal)}</p>
-        <h1 class="${glitchClass}" data-glitch="${escapeHtml(data.artistName)}">${escapeHtml(data.artistName)}</h1>
-        <p class="tagline">${escapeHtml(data.tagline)}</p>
-        <div class="actions">
-          <a href="#musica">ouvir no spotify</a>
-          <a href="#contato">contato / booking</a>
-          <a href="#videoclipes">youtube</a>
-          <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">instagram</a>
+        <div class="hero-grid">
+          <div class="brand-chamber">
+            <div class="brand-orbit" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="kicker boot-signal">${escapeHtml(data.citySignal)}</p>
+            <h1 class="${glitchClass}" data-glitch="${escapeHtml(data.artistName)}">${escapeHtml(data.artistName)}</h1>
+            <p class="tagline">${escapeHtml(data.tagline)}</p>
+            <div class="actions">
+              <a href="#musica">ouvir no spotify</a>
+              <a href="#contato">contato / booking</a>
+              <a href="#videoclipes">youtube</a>
+              <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">instagram</a>
+            </div>
+          </div>
+          <aside class="listener-panel" aria-label="Acesso rapido para ouvintes">
+            <div>
+              <span>main signal</span>
+              <strong>Miragens</strong>
+              <a href="#musica">abrir faixa</a>
+            </div>
+            <div>
+              <span>top archive</span>
+              <strong>8 ou 80 / Designer / Perc</strong>
+              <a href="${escapeHtml(spotifyArtistUrl)}" target="_blank" rel="noreferrer">spotify</a>
+            </div>
+            <div>
+              <span>access route</span>
+              <strong>videos / fotos / booking</strong>
+              <a href="#contato">contato</a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    ${section("hud", "hub principal", "spotify / instagram / youtube / contato", `
+    ${section("hud", "access deck", "spotify / youtube / instagram / booking", `
       <div class="pirate-hud">
-        <div class="hud-scratch">alien archive / listener route</div>
+        <div class="hud-scratch">listener control / play route</div>
         ${visibleMediaHubs.map((hub, index) => `
           <article class="hud-window ${hub.type} h${index + 1}">
             <header>
@@ -520,7 +545,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("portal", "rotas", "links essenciais", `
+    ${section("portal", "vault routes", "links essenciais", `
       <div class="object-wall">
         <div class="wall-stamp">YUNG<br>GARCIA</div>
         <div class="wall-warning">YUNG GARCIA</div>
@@ -535,7 +560,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("mundo", "arquivo", "mapa rapido", `
+    ${section("mundo", "signal map", "onde ouvir / ver / chamar", `
       <div class="mindmap">
         <div class="mind-center">
           <span class="tag">centro</span>
@@ -552,7 +577,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("musica", "som", "destaques no Spotify", `
+    ${section("musica", "spotify core", "destaques no Spotify", `
       <div class="music-grid">
         <div class="glass"><iframe class="spotify" src="${escapeHtml(data.spotifyEmbed)}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify"></iframe></div>
         <div class="tracks">
@@ -592,7 +617,7 @@ function renderSite() {
       </div>
     `)}
 
-    ${section("identidade", "perfil", "arquivo do artista", `
+    ${section("identidade", "artist file", "quem e Yung Garcia", `
       <div class="bio">
         <p class="vertical">musica / fotos / videos / atalhos</p>
         <div class="bio-lines">${data.about.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}</div>
@@ -613,7 +638,7 @@ function renderSite() {
       </div>
     `) : ""}
 
-    ${section("ideias", "servicos", "som / visual / contato", `
+    ${section("ideias", "booking menu", "som / visual / contato", `
       <div class="thoughts">
         ${data.thoughts.map((item) => `
           <article class="thought glass">
