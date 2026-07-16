@@ -3039,3 +3039,85 @@ body {
     max-width: 92vw !important;
   }
 }
+
+/* V30: digital goth typography - royal, alien, still readable. */
+:root {
+  --font-gothic-royal: "Old English Text MT", "Cloister Black", "Engravers MT", "UnifrakturMaguntia", "UnifrakturCook", "Blackletter", "Georgia", serif;
+  --font-gothic-tech: "Engravers MT", "Copperplate Gothic Bold", "Copperplate Gothic Light", "Bahnschrift SemiCondensed", "Agency FB", "Arial Narrow", Impact, sans-serif;
+}
+
+.hero h1,
+.boot h1 {
+  font-family: var(--font-gothic-royal) !important;
+  font-weight: 900 !important;
+  text-transform: none !important;
+  letter-spacing: .01em !important;
+  line-height: .82 !important;
+  font-variant-ligatures: discretionary-ligatures;
+}
+
+.hero h1::first-letter,
+.boot h1::first-letter {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.70),
+    0 0 28px rgba(180,231,83,.78),
+    0 0 64px rgba(57,255,20,.42);
+}
+
+.section-head h2,
+.contact h2 {
+  font-family: var(--font-gothic-tech) !important;
+  letter-spacing: .015em !important;
+}
+
+.hud-window h3,
+.portal-object strong,
+.mind-node strong,
+.track h3,
+.video-copy h3,
+.thought h3 {
+  font-family: var(--font-gothic-tech) !important;
+  letter-spacing: .015em !important;
+}
+
+.hero .kicker,
+.hero .tagline,
+.actions a,
+.rail,
+.audio-toggle {
+  font-family: var(--font-data) !important;
+}
+
+.hero h1::before {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(248,248,250,.11), transparent 8rem),
+    linear-gradient(90deg, rgba(180,231,83,.18), transparent 16%, transparent 84%, rgba(57,255,20,.16)),
+    linear-gradient(180deg, rgba(248,248,250,.075), rgba(0,0,0,.32)) !important;
+  border-color: rgba(180,231,83,.24) !important;
+}
+
+.hero h1::after,
+.boot h1::after {
+  font-family: var(--font-gothic-royal) !important;
+  text-transform: none !important;
+  letter-spacing: .01em !important;
+}
+
+@supports (-webkit-text-stroke: 1px #000) {
+  .hero h1,
+  .boot h1 {
+    -webkit-text-stroke: .7px rgba(180,231,83,.44) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1,
+  .boot h1 {
+    font-family: var(--font-gothic-tech) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0 !important;
+    line-height: .78 !important;
+  }
+}
