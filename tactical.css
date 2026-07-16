@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel+Decorative:wght@700;900&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Orbitron:wght@600;700;800;900&family=Oxanium:wght@600;700;800&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&display=swap");
 
 /* Final skin: tactical alien HUD. Loaded after styles.css to override older visual passes. */
 :root {
@@ -3541,5 +3541,142 @@ body,
   .listener-panel {
     grid-template-columns: 1fr;
     transform: none;
+  }
+}
+
+/* V33: cyberpunk/cybergoth techmark - remove medieval blackletter identity. */
+:root {
+  --font-cybergoth-logo: "Zen Dots", "Black Ops One", "Audiowide", "Orbitron", "Oxanium", sans-serif;
+  --font-cybergoth-head: "Orbitron", "Oxanium", "Rajdhani", "Bahnschrift SemiCondensed", sans-serif;
+  --font-cybergoth-body: "Rajdhani", "Bahnschrift", "Segoe UI", Arial, sans-serif;
+}
+
+.hero h1,
+.boot h1 {
+  font-family: var(--font-cybergoth-logo) !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+  letter-spacing: .035em !important;
+  line-height: .80 !important;
+  color: #f8f8fa !important;
+  -webkit-text-fill-color: #f8f8fa !important;
+  -webkit-text-stroke: 0 rgba(0,0,0,0) !important;
+  text-shadow:
+    .035em .045em 0 rgba(47,135,53,.78),
+    .075em .095em 0 rgba(0,0,0,.96),
+    0 0 16px rgba(180,231,83,.66),
+    0 0 46px rgba(57,255,20,.38),
+    0 46px 96px rgba(0,0,0,1) !important;
+  filter: none !important;
+}
+
+.hero h1 {
+  font-size: clamp(3.4rem, 9.6vw, 9.8rem) !important;
+  max-width: min(1180px, 92vw) !important;
+}
+
+.hero h1::before {
+  inset: -.14em -.08em -.09em -.08em !important;
+  background:
+    linear-gradient(90deg, rgba(57,255,20,.24), transparent 13%, transparent 87%, rgba(180,231,83,.18)),
+    linear-gradient(135deg, rgba(248,248,250,.08), rgba(0,0,0,.56)),
+    repeating-linear-gradient(90deg, rgba(180,231,83,.08) 0 1px, transparent 1px 18px) !important;
+  border: 1px solid rgba(180,231,83,.34) !important;
+  clip-path: polygon(0 0, 91% 0, 100% 18%, 100% 100%, 9% 100%, 0 82%) !important;
+  transform: translate3d(.04em, .055em, -60px) rotateY(5deg) skewX(-2deg) !important;
+  opacity: .82 !important;
+}
+
+.hero h1::after {
+  display: block !important;
+  content: "YUNG GARCIA ARCHIVE" !important;
+  position: absolute !important;
+  left: .055em !important;
+  top: .065em !important;
+  z-index: -2 !important;
+  font-family: var(--font-cybergoth-logo) !important;
+  font-size: 1em !important;
+  line-height: .80 !important;
+  letter-spacing: .035em !important;
+  text-transform: uppercase !important;
+  color: rgba(57,255,20,.13) !important;
+  -webkit-text-fill-color: rgba(57,255,20,.13) !important;
+  -webkit-text-stroke: 0 transparent !important;
+  opacity: .70 !important;
+  filter: blur(.35px) !important;
+  transform: translate3d(.08em, .09em, -18px) skewX(-8deg) !important;
+  pointer-events: none !important;
+}
+
+.hero h1.glitch::before,
+.hero h1.glitch::after {
+  animation: none !important;
+}
+
+.section-head h2,
+.contact h2,
+.hud-window h3,
+.portal-object strong,
+.mind-node strong,
+.track h3,
+.video-copy h3,
+.thought h3,
+.listener-panel strong {
+  font-family: var(--font-cybergoth-head) !important;
+  letter-spacing: .04em !important;
+}
+
+html,
+body,
+.tagline,
+.portal-object p,
+.mind-node p,
+.track p,
+.thought p,
+.video-copy p,
+.bio-lines p,
+.contact p {
+  font-family: var(--font-cybergoth-body) !important;
+}
+
+.brand-chamber h1 {
+  transform: translate3d(0, 0, 155px) rotateY(-5deg) rotateX(.8deg) !important;
+}
+
+.brand-chamber h1:hover {
+  text-shadow:
+    .025em .035em 0 rgba(47,135,53,.88),
+    .07em .09em 0 rgba(0,0,0,.98),
+    0 0 20px rgba(180,231,83,.78),
+    0 0 62px rgba(57,255,20,.52),
+    0 46px 96px rgba(0,0,0,1) !important;
+}
+
+@keyframes yxGothBrandFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) skewX(0deg);
+  }
+  40% {
+    transform: translate3d(.025em, -.015em, 0) rotateX(.45deg) skewX(-.4deg);
+  }
+  44% {
+    transform: translate3d(-.014em, .008em, 0) skewX(.55deg);
+  }
+  48% {
+    transform: translate3d(.006em, 0, 0);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1,
+  .boot h1 {
+    font-family: "Orbitron", "Oxanium", "Rajdhani", sans-serif !important;
+    font-size: clamp(2.8rem, 15vw, 5.4rem) !important;
+    letter-spacing: .015em !important;
+    line-height: .82 !important;
+  }
+
+  .hero h1::after {
+    font-size: 1em !important;
   }
 }

@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v32";
+const storageKey = "akayunggarcia-standalone-v33";
 const adminKey = "akayunggarcia-admin-ok";
 const adminTokenKey = "akayunggarcia-admin-token";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
@@ -34,13 +34,14 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v28",
   "akayunggarcia-standalone-v29",
   "akayunggarcia-standalone-v30",
-  "akayunggarcia-standalone-v31"
+  "akayunggarcia-standalone-v31",
+  "akayunggarcia-standalone-v32"
 ];
 
 const fallbackImage =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%2300d4ff'/%3E%3Cstop offset='.45' stop-color='%23d72bff'/%3E%3Cstop offset='1' stop-color='%23030208'/%3E%3C/radialGradient%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23g)'/%3E%3Crect width='900' height='900' filter='url(%23n)' opacity='.24'/%3E%3Cpath d='M60 680 C210 520 300 800 440 610 S680 390 840 560' fill='none' stroke='%23fff' opacity='.28' stroke-width='3'/%3E%3C/svg%3E";
 
-const designVersion = "listener-chamber-v1";
+const designVersion = "cybergoth-techmark-v1";
 
 const spotifyArtistUrl = "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS";
 const instagramUrl = "https://instagram.com/akaynggarcia";
@@ -59,7 +60,7 @@ const initialData = {
     accent2: "#b4e753",
     text: "#f8f8fa",
     muted: "#8fbf91",
-    serif: "'UnifrakturMaguntia', 'UnifrakturCook', 'Cinzel Decorative', 'Old English Text MT', 'Cloister Black', 'Engravers MT', serif",
+    serif: "'Zen Dots', 'Orbitron', 'Black Ops One', 'Audiowide', 'Oxanium', 'Rajdhani', sans-serif",
     mono: "'Cascadia Mono', 'IBM Plex Mono', 'Courier New', monospace",
     sans: "'Bahnschrift', 'Segoe UI', Arial, sans-serif",
     rain: true,
