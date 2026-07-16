@@ -1,4 +1,4 @@
-const storageKey = "akayunggarcia-standalone-v27";
+const storageKey = "akayunggarcia-standalone-v28";
 const adminKey = "akayunggarcia-admin-ok";
 const adminTokenKey = "akayunggarcia-admin-token";
 const adminPassHash = "0a18524cbd273b68bd8dd473597504e35012cec19ac366e6e77bd8e3e19e5b30";
@@ -29,13 +29,14 @@ const oldStorageKeys = [
   "akayunggarcia-standalone-v23",
   "akayunggarcia-standalone-v24",
   "akayunggarcia-standalone-v25",
-  "akayunggarcia-standalone-v26"
+  "akayunggarcia-standalone-v26",
+  "akayunggarcia-standalone-v27"
 ];
 
 const fallbackImage =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%2300d4ff'/%3E%3Cstop offset='.45' stop-color='%23d72bff'/%3E%3Cstop offset='1' stop-color='%23030208'/%3E%3C/radialGradient%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23g)'/%3E%3Crect width='900' height='900' filter='url(%23n)' opacity='.24'/%3E%3Cpath d='M60 680 C210 520 300 800 440 610 S680 390 840 560' fill='none' stroke='%23fff' opacity='.28' stroke-width='3'/%3E%3C/svg%3E";
 
-const designVersion = "final-product-v4";
+const designVersion = "alien-milspec-v1";
 
 const spotifyArtistUrl = "https://open.spotify.com/intl-pt/artist/2TIEjez69Y8t9qvfWKeyXS";
 const instagramUrl = "https://instagram.com/akaynggarcia";
@@ -43,17 +44,17 @@ const instagramUrl = "https://instagram.com/akaynggarcia";
 const initialData = {
   designVersion,
   artistName: "Yung Garcia Archive",
-  tagline: "som, video, contato e arquivo visual.",
-  citySignal: "alien military archive / online",
+  tagline: "grife tatica alienigena em formato de som.",
+  citySignal: "restricted cultural memory system / 2093 signal",
   spotifyEmbed:
     "https://open.spotify.com/embed/artist/2TIEjez69Y8t9qvfWKeyXS?utm_source=generator&theme=0",
   theme: {
-    background: "#010403",
-    surface: "rgba(1, 18, 10, 0.78)",
+    background: "#202020",
+    surface: "rgba(3, 18, 7, 0.82)",
     accent: "#39ff14",
-    accent2: "#d8ffe6",
-    text: "#eef8ed",
-    muted: "#93b79e",
+    accent2: "#b4e753",
+    text: "#f8f8fa",
+    muted: "#8fbf91",
     serif: "'Haettenschweiler', 'Agency FB', 'Bahnschrift SemiCondensed', 'Arial Narrow', Impact, sans-serif",
     mono: "'Cascadia Mono', 'IBM Plex Mono', 'Courier New', monospace",
     sans: "'Bahnschrift', 'Segoe UI', Arial, sans-serif",
@@ -83,7 +84,7 @@ const initialData = {
     scrollDepth: 38,
     performanceMode: false
   },
-  phrases: ["spotify.", "youtube.", "instagram.", "orcamento."],
+  phrases: ["spotify access.", "visual vault.", "youtube signal.", "booking link."],
   worldNodes: [
     {
       type: "spotify",
@@ -481,10 +482,10 @@ function renderSite() {
         <h1 class="${glitchClass}" data-glitch="${escapeHtml(data.artistName)}">${escapeHtml(data.artistName)}</h1>
         <p class="tagline">${escapeHtml(data.tagline)}</p>
         <div class="actions">
-          <a href="#musica">ouvir</a>
-          <a href="#videoclipes">videos</a>
+          <a href="#musica">ouvir no spotify</a>
+          <a href="#contato">contato / booking</a>
+          <a href="#videoclipes">youtube</a>
           <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">instagram</a>
-          <a href="#contato">orcamento</a>
         </div>
       </div>
     </section>

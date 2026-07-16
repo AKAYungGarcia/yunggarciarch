@@ -2573,3 +2573,282 @@ select {
     0 42px 120px rgba(0,0,0,.74),
     0 0 54px rgba(57,255,20,.24) !important;
 }
+
+/* V28: hallucination-safe alien luxury palette for the opening screen. */
+:root {
+  --yx-black: #202020;
+  --yx-deep-green: #2f8735;
+  --yx-neon-green: #5bc84d;
+  --yx-plasma: #b4e753;
+  --yx-white: #f8f8fa;
+  --yx-panel: rgba(4, 18, 7, .82);
+  --yx-edge: rgba(180, 231, 83, .42);
+}
+
+html,
+body {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(91,200,77,.18), transparent 24rem),
+    radial-gradient(circle at 72% 46%, rgba(180,231,83,.10), transparent 30rem),
+    linear-gradient(180deg, #202020 0%, #050705 46%, #000 100%) !important;
+  color: var(--yx-white) !important;
+}
+
+.boot {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(180,231,83,.22), transparent 18rem),
+    radial-gradient(circle at 50% 44%, transparent 0 8.5rem, rgba(91,200,77,.36) 8.65rem 8.8rem, transparent 9.1rem),
+    linear-gradient(145deg, #202020, #020402 72%, #000) !important;
+}
+
+.boot::before {
+  content: "";
+  position: absolute;
+  inset: 8vh 8vw;
+  border: 1px solid rgba(180,231,83,.28);
+  background:
+    linear-gradient(90deg, transparent 49.6%, rgba(180,231,83,.28) 50%, transparent 50.4%),
+    linear-gradient(0deg, transparent 49.6%, rgba(91,200,77,.20) 50%, transparent 50.4%),
+    conic-gradient(from 0deg at 50% 50%, transparent, rgba(180,231,83,.38), transparent 36deg, transparent 360deg);
+  border-radius: 50%;
+  opacity: .68;
+  filter: blur(.2px);
+  animation: yxBootOrbit 4.8s linear infinite;
+}
+
+.boot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(248,248,250,.045) 0 1px, transparent 1px 6px),
+    linear-gradient(90deg, transparent, rgba(91,200,77,.18), transparent);
+  mix-blend-mode: screen;
+  opacity: .42;
+  animation: yxScanDrift 3.2s ease-in-out infinite;
+}
+
+.boot p,
+.boot h1 {
+  position: relative;
+  z-index: 2;
+}
+
+.boot h1 {
+  color: var(--yx-white) !important;
+  text-shadow:
+    0 0 16px rgba(180,231,83,.72),
+    0 0 44px rgba(91,200,77,.55),
+    0 34px 90px rgba(0,0,0,.95) !important;
+  animation: yxTitlePulse 3.8s ease-in-out infinite;
+}
+
+.boot p {
+  color: rgba(180,231,83,.88) !important;
+}
+
+.hero {
+  min-height: 100svh !important;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(91,200,77,.24), transparent 16rem),
+    radial-gradient(circle at 50% 44%, transparent 0 12rem, rgba(180,231,83,.24) 12.15rem 12.28rem, transparent 12.7rem),
+    radial-gradient(circle at 82% 24%, rgba(47,135,53,.24), transparent 24rem),
+    linear-gradient(160deg, #202020 0%, #020602 48%, #000 100%) !important;
+}
+
+.hero::before {
+  inset: clamp(1rem, 5vw, 4rem) !important;
+  border-color: rgba(180,231,83,.30) !important;
+  background:
+    radial-gradient(circle at 50% 48%, transparent 0 8rem, rgba(180,231,83,.28) 8.15rem 8.32rem, transparent 8.7rem),
+    radial-gradient(circle at 50% 48%, transparent 0 15rem, rgba(91,200,77,.18) 15.12rem 15.28rem, transparent 15.7rem),
+    conic-gradient(from 180deg at 50% 48%, transparent, rgba(180,231,83,.34), transparent 32deg, transparent 360deg),
+    linear-gradient(90deg, transparent 49.8%, rgba(180,231,83,.22) 50%, transparent 50.2%) !important;
+  opacity: .9 !important;
+  animation: yxHeroOrbit 8s linear infinite !important;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(180,231,83,.18), transparent 28rem),
+    repeating-linear-gradient(0deg, rgba(248,248,250,.035) 0 1px, transparent 1px 7px);
+  mix-blend-mode: screen;
+  opacity: .48;
+  animation: yxHallucinationDrift 6.5s ease-in-out infinite;
+}
+
+.hero .inner {
+  z-index: 2;
+  isolation: isolate;
+}
+
+.hero .inner::before {
+  content: "";
+  position: absolute;
+  right: clamp(1rem, 7vw, 6rem);
+  top: 50%;
+  width: clamp(180px, 28vw, 420px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(248,248,250,.90) 0 .34rem, transparent .42rem),
+    radial-gradient(circle, rgba(180,231,83,.30), transparent 34%),
+    conic-gradient(from 0deg, rgba(180,231,83,0), rgba(180,231,83,.72), rgba(91,200,77,.18), rgba(180,231,83,0) 42%),
+    radial-gradient(circle, transparent 0 56%, rgba(180,231,83,.42) 56.5% 57.2%, transparent 58%);
+  border: 1px solid rgba(180,231,83,.36);
+  box-shadow:
+    inset 0 0 34px rgba(91,200,77,.22),
+    0 0 80px rgba(91,200,77,.34);
+  transform: translate3d(12%, -50%, -1px) rotateX(62deg);
+  animation: yxCoreSpin 7.4s linear infinite, yxCoreBreathe 3.4s ease-in-out infinite;
+  opacity: .78;
+}
+
+.hero .inner::after {
+  content: "ACCESS / 2093 / MILSPEC AUDIO";
+  position: absolute;
+  right: clamp(1rem, 6vw, 5rem);
+  bottom: clamp(.8rem, 4vh, 2.4rem);
+  color: rgba(180,231,83,.74);
+  font: 700 clamp(.62rem, 1vw, .78rem) var(--font-data);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  pointer-events: none;
+  text-shadow: 0 0 18px rgba(91,200,77,.45);
+}
+
+.hero h1 {
+  color: var(--yx-white) !important;
+  max-width: min(980px, 84vw) !important;
+  text-shadow:
+    0 0 10px rgba(180,231,83,.86),
+    0 0 42px rgba(91,200,77,.54),
+    0 58px 120px rgba(0,0,0,.98) !important;
+  animation: yxTitlePulse 4.2s ease-in-out infinite;
+}
+
+.hero .kicker,
+.hero .tagline {
+  color: rgba(248,248,250,.88) !important;
+  text-shadow: 0 0 20px rgba(91,200,77,.32);
+}
+
+.hero .kicker {
+  color: rgba(180,231,83,.88) !important;
+}
+
+.actions a {
+  border-radius: 4px !important;
+  border-color: rgba(180,231,83,.46) !important;
+  background:
+    linear-gradient(135deg, rgba(4,18,7,.78), rgba(0,0,0,.62)) !important;
+  color: var(--yx-white) !important;
+  box-shadow:
+    inset 0 0 18px rgba(91,200,77,.08),
+    0 18px 44px rgba(0,0,0,.48) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.actions a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(248,248,250,.28), transparent);
+  transform: translateX(-120%);
+  transition: transform .55s ease;
+}
+
+.actions a:hover::after {
+  transform: translateX(120%);
+}
+
+.actions a:first-child {
+  background: linear-gradient(90deg, var(--yx-plasma), var(--yx-neon-green)) !important;
+  border-color: rgba(248,248,250,.80) !important;
+  color: #071107 !important;
+  box-shadow:
+    0 0 32px rgba(180,231,83,.48),
+    0 0 90px rgba(91,200,77,.28),
+    inset 0 1px 0 rgba(248,248,250,.44) !important;
+}
+
+.actions a:nth-child(2) {
+  border-color: rgba(180,231,83,.72) !important;
+  box-shadow:
+    inset 0 0 24px rgba(180,231,83,.10),
+    0 0 34px rgba(91,200,77,.18) !important;
+}
+
+@keyframes yxBootOrbit {
+  from { transform: rotate(0deg) scale(.98); }
+  to { transform: rotate(360deg) scale(.98); }
+}
+
+@keyframes yxHeroOrbit {
+  from { transform: translate3d(-.6vw, 0, -60px) rotate(0deg); }
+  to { transform: translate3d(.6vw, 0, -60px) rotate(360deg); }
+}
+
+@keyframes yxCoreSpin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+@keyframes yxCoreBreathe {
+  0%, 100% { filter: blur(.1px) saturate(1.1); opacity: .58; }
+  50% { filter: blur(.4px) saturate(1.55); opacity: .86; }
+}
+
+@keyframes yxTitlePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(91,200,77,.38));
+    transform: translate3d(0, 0, 0);
+  }
+  45% {
+    filter: drop-shadow(0 0 28px rgba(180,231,83,.62));
+    transform: translate3d(.18rem, -.08rem, 0);
+  }
+  48% {
+    transform: translate3d(-.12rem, .04rem, 0);
+  }
+  52% {
+    transform: translate3d(.05rem, 0, 0);
+  }
+}
+
+@keyframes yxHallucinationDrift {
+  0%, 100% { transform: translate3d(-.4vw, -.4vh, 0) scale(1); opacity: .34; }
+  50% { transform: translate3d(.5vw, .35vh, 0) scale(1.015); opacity: .58; }
+}
+
+@keyframes yxScanDrift {
+  0%, 100% { transform: translateY(-1.2vh); opacity: .28; }
+  50% { transform: translateY(1.2vh); opacity: .52; }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 92svh !important;
+  }
+
+  .hero .inner::before {
+    right: -6rem;
+    top: 40%;
+    width: 260px;
+    opacity: .46;
+  }
+
+  .hero .inner::after {
+    display: none;
+  }
+
+  .hero h1 {
+    max-width: 92vw !important;
+  }
+}
